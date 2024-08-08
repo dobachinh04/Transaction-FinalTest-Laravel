@@ -16,7 +16,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // Lấy dữ liệu category,galleries và tags trong relation trong model để hiển thị ra index:
+        // Lấy dữ liệu category,galleries và tags trong relation ở model để hiển thị ra index:
         $data = Product::with(['category', 'galleries', 'tags'])->latest('id')->paginate(1);
 
         return view('products.index', compact('data'));
