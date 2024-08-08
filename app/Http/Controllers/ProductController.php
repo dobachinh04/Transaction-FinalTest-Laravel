@@ -85,6 +85,7 @@ class ProductController extends Controller
         // Copy từ index và xóa bỏ model, thêm biến và ->load, xóa bỏ latest các thứ:
         $product->load(['category', 'galleries', 'tags']);
 
+        // Copy từ create và giữ y nguyên:
         $categories = Category::pluck('name', 'id')->all();
 
         $tags = Tag::pluck('name', 'id')->all();
