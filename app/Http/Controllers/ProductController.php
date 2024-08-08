@@ -14,9 +14,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         // Lấy dữ liệu category,galleries và tags trong relation trong model để hiển thị ra index:
@@ -25,9 +22,6 @@ class ProductController extends Controller
         return view('products.index', compact('data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         // Lấy dữ liệu id và name của Category để hiển thị ra form:
@@ -41,9 +35,6 @@ class ProductController extends Controller
         return view('products.create', compact('categories', 'tags'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreProductRequest $request)
     {
         try {
@@ -84,17 +75,11 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Product $product)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Product $product)
     {
         // Copy từ index và xóa bỏ model, thêm biến và ->load, xóa bỏ latest các thứ:
@@ -111,9 +96,6 @@ class ProductController extends Controller
         return view('products.edit', compact('categories', 'tags', 'product', 'productTags'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdateProductRequest $request, Product $product)
     {
         // Copy từ store:
@@ -156,9 +138,6 @@ class ProductController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Product $product)
     {
         // Copy form try catch xuống và xóa dữ liệu bên trong trừ DB::transaction
