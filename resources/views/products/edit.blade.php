@@ -45,7 +45,7 @@
         <div class="mb-3">
             <label for="tags" class="form-label">Tags</label>
             <select class="form-select form-select-lg" multiple name="tags[]" id="tags">
-                <option selected disabled>Chọn Danh Mục</option>
+                <option selected disabled>Chọn Tags</option>
                 @foreach ($tags as $id => $name)
                     <option @selected(in_array($id, $productTags)) value="{{ $id }}"> {{ $name }}</option>
                 @endforeach
